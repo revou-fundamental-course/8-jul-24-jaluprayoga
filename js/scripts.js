@@ -1,12 +1,12 @@
-const hasilOutputElement = document.querySelector("#hasil-output");
-const totalElement = document.querySelector("#total");
-const kategoriElement = document.querySelector("#kategori");
-const hasilKategoriElement = document.querySelector("#hasil-kategori");
-const hasilAnjuranElement = document.querySelector("#hasil-anjuran");
-const hasilPenyakitElement = document.querySelector("#hasil-penyakit");
-const hasilContentElement = document.querySelector("#hasil-content");
-const hasilFooterElement = document.querySelector("#hasil-footer");
-const keyArr = ["kategori", "pesan", "anjuran", "penyakit"];
+const elements = (selector) => {
+  return document.querySelector(selector);
+};
+const hasilOutputElement = elements("#hasil-output");
+const hasilKategoriElement = elements("#hasil-kategori");
+const hasilAnjuranElement = elements("#hasil-anjuran");
+const hasilPenyakitElement = elements("#hasil-penyakit");
+const hasilContentElement = elements("#hasil-content");
+const hasilFooterElement = elements("#hasil-footer");
 const outputArr = [
   {
     kategori: "Kekurangan Berat Badan",
@@ -39,37 +39,29 @@ function handleSubmit(event) {
   const fd = new FormData(event.target);
   const data = Object.fromEntries(fd);
   const { berat, tinggi } = data;
+  let index = 0;
 
   // TODO: hitung BMI
   const bmi = (berat / (tinggi / 100) ** 2).toFixed(2);
 
-  // TODO: cek kategori
   if (bmi < 18.5) {
-    kategori = outputArr[0].kategori;
-    pesan = outputArr[0].pesan;
-    anjuran = outputArr[0].anjuran;
-    penyakit = outputArr[0].penyakit;
-  }
-  if (bmi > 18.5 && bmi < 24.9) {
-    kategori = outputArr[1].kategori;
-    pesan = outputArr[1].pesan;
-    anjuran = outputArr[1].anjuran;
-    penyakit = outputArr[1].penyakit;
-  }
-  if (bmi > 24.9 && bmi < 29.9) {
-    kategori = outputArr[2].kategori;
-    pesan = outputArr[2].pesan;
-    anjuran = outputArr[2].anjuran;
-    penyakit = outputArr[2].penyakit;
-  }
-  if (bmi > 29.9) {
-    kategori = outputArr[3].kategori;
-    pesan = outputArr[3].pesan;
-    anjuran = outputArr[3].anjuran;
-    penyakit = outputArr[3].penyakit;
+    index = 0;
+  } else if (bmi > 18.5 && bmi < 24.9) {
+    index = 1;
+  } else if (bmi > 24.9 && bmi < 29.9) {
+    index = 2;
+  } else if (bmi > 29.9) {
+    index = 3;
   }
 
+  kategori = outputArr[index].kategori;
+  pesan = outputArr[index].pesan;
+  anjuran = outputArr[index].anjuran;
+  penyakit = outputArr[index].penyakit;
+
+  // TODO: update UI
   hasilOutputElement.innerHTML = `<h4>${kategori}</h4><h1 class="bmi">${bmi}</h1><p>${pesan}</p> <button class="button">Download Hasil BMI</button>`;
+
   hasilAnjuranElement.innerHTML = `${anjuran}`;
   hasilKategoriElement.innerHTML = `${kategori}`;
   hasilPenyakitElement.innerHTML = `${penyakit}`;
@@ -79,9 +71,8 @@ function handleSubmit(event) {
 function reset() {
   document.querySelector("#berat-input").value = null;
   document.querySelector("#tinggi-input").value = null;
-  hasilAnjuranElement.innerHTML = null;
-  hasilKategoriElement.innerHTML = null;
-  hasilPenyakitElement.innerHTML = null;
+  [hasilAnjuranElement, hasilKategoriElement, hasilPenyakitElement].innerHTML =
+    null;
   hasilContentElement.style.display = "none";
   hasilFooterElement.style.display = "none";
   hasilOutputElement.innerHTML = `<p>Silahkan isi form terlebih dahulu</p>`;
