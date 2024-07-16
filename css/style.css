@@ -1,0 +1,121 @@
+/* Reset default style CSS */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: system-ui;
+}
+
+body {
+  background-image: white;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  gap: 100px;
+  text-align: justify;
+}
+p > span {
+  font-weight: bold;
+  color: royalblue;
+}
+ol {
+  list-style-position: inside;
+}
+.page1-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  gap: 20px;
+}
+.page2-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  gap: 50px;
+  height: 100%;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  align-self: flex-end;
+}
+.form-container {
+  background-color: #f2f3f5;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.button {
+  padding: 10px 10px;
+  min-width: 70px;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reset-btn {
+  justify-self: end;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#hasil-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#hasil-output {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f2f3f5;
+  padding: 20px;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+#hasil-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#hasil-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #f2f3f5;
+  padding: 20px;
+  /* height: 25svh; */
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+#hasil-footer > #hasil-penyakit {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  align-items: center;
+}
+.bmi {
+  color: royalblue;
+}
+.output-button-container {
+  display: flex;
+  gap: 20px;
+}
+.button-container {
+  display: flex;
+  justify-content: end;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+}

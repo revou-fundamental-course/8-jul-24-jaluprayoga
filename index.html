@@ -2,8 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <article class="page1-container">
+      <section>
+        <h1>Kalkulator BMI</h1>
+        <p>
+          Berat badan ideal adalah impian semua orang. Tidak hanya menunjang
+          penampilan, berat badan ideal juga menandakan kondisi tubuh yang
+          sehat. Bagaimana denganmu? Yuk hitung sekarang di kalkulator BMI
+        </p>
+      </section>
+      <section class="form-section">
+        <form class="form-container" onsubmit="handleSubmit(event)">
+          <div>
+            <span>Jenis Kelamin</span>
+            <div class="radio-container">
+              <input
+                type="radio"
+                id="pria"
+                name="gender"
+                value="pria"
+                checked
+              />
+              <label for="pria">Pria</label>
+              <input type="radio" id="wanita" name="gender" value="wanita" />
+              <label for="wanita">Wanita</label>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="berat-input">Berat Badan (kg)</label>
+            <input
+              id="berat-input"
+              type="number"
+              min="0"
+              name="berat"
+              required
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="tinggi-input">Tinggi Badan (cm)</label>
+            <input
+              id="tinggi-input"
+              type="number"
+              min="0"
+              name="tinggi"
+              required
+            />
+          </div>
+
+          <button type="submit" class="button" value="Submit">Hitung</button>
+        </form>
+        <div class="button-container">
+          <button type="reset" class="button reset-btn" onclick="reset()">
+            Reset
+          </button>
+        </div>
+      </section>
+      <section>
+        <h3>Keunggulan fitur</h3>
+        <ol>
+          <li>Menghitung berat badan</li>
+          <li>Menentukan kategori berat badan ideal atau tidak</li>
+          <li>Mempersiapkan program penurunan berat badan</li>
+        </ol>
+        <br />
+        <p>
+          Kalklator ini hanya boleh digunakan oleh orang dewasa (wanita hamil
+          atau menyusui tidak boleh mengandalkan pembacaan kalkulator BMI ini.)
+          dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain
+          berkonsultasi dengan orang yang memenuhi syarat seperti dokter.
+        </p>
+        <br />
+        <p>
+          Kalkulator akan memberi anda gambaran tentang perbandingan berat badan
+          anda dengan nilai umum, Indeks Masa Tubuh (BMI) dihitung sebagai berat
+          badan anda (dalam kilogram) dengan kuadrat tinggi badan anda (dalam
+          meter).
+        </p>
+      </section>
+    </article>
+    <article class="page2-container">
+      <div id="hasil-container">
+        <h1>Hasil</h1>
+        <div id="hasil-output">
+          <p>Silahkan isi form terlebih dahulu</p>
+        </div>
+        <div id="hasil-content" style="display: none">
+          <p>
+            Anda berada dalam kategori
+            <span id="hasil-kategori">overweight atau berat badan berlebih</span
+            >. Jika BMI Anda dalam kategori ini maka Anda dianjurkan untuk
+            <span id="hasil-anjuran"
+              >menurunkan berat badan hingga batas normal.</span
+            >
+          </p>
+
+          <p>
+            BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan
+            tubuh dan resiko penyakit seseorang. Anda perlu konsultasi lebih
+            lanjut mengenai resiko dan kekhawatiran anda terkait dengan berat
+            badan anda.
+          </p>
+        </div>
+        <div id="hasil-footer" style="display: none">
+          <h4>Beberapa penyakit yang berasal dari kategori anda</h4>
+          <div id="hasil-penyakit">
+            <p>Diabetes</p>
+            <p>Hipertensi</p>
+            <p>Sakit Jantung</p>
+            <p>Osteoarthritis</p>
+          </div>
+          <div class="output-button-container">
+            <button class="button">Konsultasi Ahli Gizi Via Aplikasi</button>
+            <button class="button">Register Online Ahli Gizi</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <script src="/js/scripts.js"></script>
+  </body>
 </html>
