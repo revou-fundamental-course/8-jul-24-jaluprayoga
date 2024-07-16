@@ -60,15 +60,31 @@ function handleSubmit(event) {
   penyakit = outputArr[index].penyakit;
 
   // TODO: update UI
-  hasilOutputElement.innerHTML = `<h4>${kategori}</h4><h1 class="bmi">${bmi}</h1><p>${pesan}</p> <button class="button">Download Hasil BMI</button>`;
 
-  hasilAnjuranElement.innerHTML = `${anjuran}`;
-  hasilKategoriElement.innerHTML = `${kategori}`;
-  hasilPenyakitElement.innerHTML = `${penyakit}`;
-  hasilContentElement.style.display = "flex";
-  hasilFooterElement.style.display = "flex";
+  insertValue({
+    params: [
+      hasilAnjuranElement,
+      hasilKategoriElement,
+      hasilPenyakitElement,
+      hasilOutputElement,
+    ],
+    method: "innerHTML",
+    nilai: [
+      `${anjuran}`,
+      `${kategori}`,
+      `${penyakit}`,
+      `<h4>${kategori}</h4><h1 class="bmi">${bmi}</h1><p>${pesan}</p> <button class="button">Download Hasil BMI</button>`,
+    ],
+  });
+
+  insertValue({
+    params: [hasilContentElement, hasilFooterElement],
+    method: "display",
+    nilai: `flex`,
+  });
 }
 function reset() {
+  // TODO: update UI
   document.querySelector("#berat-input").value = null;
   document.querySelector("#tinggi-input").value = null;
   [hasilAnjuranElement, hasilKategoriElement, hasilPenyakitElement].innerHTML =
@@ -77,3 +93,14 @@ function reset() {
   hasilFooterElement.style.display = "none";
   hasilOutputElement.innerHTML = `<p>Silahkan isi form terlebih dahulu</p>`;
 }
+
+const insertValue = ({ params, method, nilai }) => {
+  for (let i = 0; i < params.length; i++) {
+    if (method === "innerHTML") {
+      params[i].innerHTML = nilai[i];
+    }
+    if (method === "display") {
+      params[i].style.display = nilai;
+    }
+  }
+};
