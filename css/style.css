@@ -20,20 +20,14 @@ p > span {
 ol {
   list-style-position: inside;
 }
+
+/* Page 1 Style */
 .page1-container {
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
   gap: 20px;
 }
-.page2-container {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-  gap: 50px;
-  height: 100%;
-}
-
 .reset-btn {
   margin-top: 20px;
   align-self: flex-end;
@@ -45,6 +39,8 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.form-container > span {
 }
 .button {
   padding: 10px 10px;
@@ -62,6 +58,16 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+/* End Page 1 Style */
+
+/*  Page 2 Style */
+.page2-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  gap: 50px;
+  height: 100%;
 }
 #hasil-container {
   display: flex;
@@ -113,7 +119,9 @@ ol {
   display: flex;
   justify-content: end;
 }
+/* End Page 2 Style */
 
+/* Media Query */
 @media (max-width: 768px) {
   body {
     flex-direction: column;

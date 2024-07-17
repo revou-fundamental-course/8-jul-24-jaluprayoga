@@ -1,6 +1,8 @@
+// Variables
 const elements = (selector) => {
   return document.querySelector(selector);
 };
+
 const hasilOutputElement = elements("#hasil-output");
 const hasilKategoriElement = elements("#hasil-kategori");
 const hasilAnjuranElement = elements("#hasil-anjuran");
@@ -34,6 +36,7 @@ const outputArr = [
   },
 ];
 
+// Handle Submit Form Functiion
 function handleSubmit(event) {
   event.preventDefault();
   const fd = new FormData(event.target);
@@ -60,7 +63,6 @@ function handleSubmit(event) {
   penyakit = outputArr[index].penyakit;
 
   // TODO: update UI
-
   insertValue({
     params: [
       hasilAnjuranElement,
@@ -69,7 +71,7 @@ function handleSubmit(event) {
       hasilOutputElement,
     ],
     method: "innerHTML",
-    nilai: [
+    value: [
       `${anjuran}`,
       `${kategori}`,
       `${penyakit}`,
@@ -80,9 +82,11 @@ function handleSubmit(event) {
   insertValue({
     params: [hasilContentElement, hasilFooterElement],
     method: "display",
-    nilai: `flex`,
+    value: `flex`,
   });
 }
+
+// Handle Reset Button Function
 function reset() {
   // TODO: update UI
   document.querySelector("#berat-input").value = null;
@@ -94,13 +98,13 @@ function reset() {
   hasilOutputElement.innerHTML = `<p>Silahkan isi form terlebih dahulu</p>`;
 }
 
-const insertValue = ({ params, method, nilai }) => {
+const insertValue = ({ params, method, value }) => {
   for (let i = 0; i < params.length; i++) {
     if (method === "innerHTML") {
-      params[i].innerHTML = nilai[i];
+      params[i].innerHTML = value[i];
     }
     if (method === "display") {
-      params[i].style.display = nilai;
+      params[i].style.display = value;
     }
   }
 };

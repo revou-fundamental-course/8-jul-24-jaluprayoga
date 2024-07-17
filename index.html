@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- Container for page 1 (Left Side) -->
     <article class="page1-container">
       <section>
         <h1>Kalkulator BMI</h1>
@@ -17,24 +18,19 @@
           sehat. Bagaimana denganmu? Yuk hitung sekarang di kalkulator BMI
         </p>
       </section>
+
+      <!-- Form Section-->
       <section class="form-section">
         <form class="form-container" onsubmit="handleSubmit(event)">
-          <div>
-            <span>Jenis Kelamin</span>
-            <div class="radio-container">
-              <input
-                type="radio"
-                id="pria"
-                name="gender"
-                value="pria"
-                checked
-              />
-              <label for="pria">Pria</label>
-              <input type="radio" id="wanita" name="gender" value="wanita" />
-              <label for="wanita">Wanita</label>
+          <div class="radio-container">
+            <div>
+              <span>Jenis Kelamin</span>
             </div>
+            <input type="radio" id="pria" name="gender" value="pria" checked />
+            <label for="pria">Pria</label>
+            <input type="radio" id="wanita" name="gender" value="wanita" />
+            <label for="wanita">Wanita</label>
           </div>
-
           <div class="input-container">
             <label for="berat-input">Berat Badan (kg)</label>
             <input
@@ -45,7 +41,6 @@
               required
             />
           </div>
-
           <div class="input-container">
             <label for="tinggi-input">Tinggi Badan (cm)</label>
             <input
@@ -56,7 +51,6 @@
               required
             />
           </div>
-
           <button type="submit" class="button" value="Submit">Hitung</button>
         </form>
         <div class="button-container">
@@ -65,6 +59,8 @@
           </button>
         </div>
       </section>
+
+      <!-- Page 1 Footer Section-->
       <section>
         <h3>Keunggulan fitur</h3>
         <ol>
@@ -88,13 +84,17 @@
         </p>
       </section>
     </article>
+
+    <!-- Container for page 2 (Right Side) -->
     <article class="page2-container">
       <div id="hasil-container">
         <h1>Hasil</h1>
         <div id="hasil-output">
           <p>Silahkan isi form terlebih dahulu</p>
         </div>
-        <div id="hasil-content" style="display: none">
+
+        <!-- Page 2 Output Content -->
+        <section id="hasil-content" style="display: none">
           <p>
             Anda berada dalam kategori
             <span id="hasil-kategori">overweight atau berat badan berlebih</span
@@ -103,15 +103,16 @@
               >menurunkan berat badan hingga batas normal.</span
             >
           </p>
-
           <p>
             BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan
             tubuh dan resiko penyakit seseorang. Anda perlu konsultasi lebih
             lanjut mengenai resiko dan kekhawatiran anda terkait dengan berat
             badan anda.
           </p>
-        </div>
-        <div id="hasil-footer" style="display: none">
+        </section>
+
+        <!-- Page 2 Footer -->
+        <section id="hasil-footer" style="display: none">
           <h4>Beberapa penyakit yang berasal dari kategori anda</h4>
           <div id="hasil-penyakit">
             <p>Diabetes</p>
@@ -123,7 +124,7 @@
             <button class="button">Konsultasi Ahli Gizi Via Aplikasi</button>
             <button class="button">Register Online Ahli Gizi</button>
           </div>
-        </div>
+        </section>
       </div>
     </article>
 
